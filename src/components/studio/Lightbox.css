@@ -1,0 +1,52 @@
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+
+.lightbox {
+  align-items: center;
+}
+
+.lightbox__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  align-items: center;
+  max-height: calc(100svh - 2 * var(--gutter));
+  animation: dialog-in 300ms var(--ease-spring) backwards;
+}
+
+.lightbox__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  color: var(--text-mute);
+  letter-spacing: 0.14em;
+}
+
+.lightbox__frame {
+  position: relative;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1.5px solid var(--line-sun);
+  box-shadow: var(--lift-3);
+  min-height: 0;
+  display: flex;
+}
+
+.lightbox__canvas {
+  max-height: calc(100svh - 2 * var(--gutter) - 120px);
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  transition: opacity var(--t-slow) var(--ease);
+}
+
+.lightbox__skeleton {
+  position: absolute;
+  inset: 0;
+}
+
+.lightbox__foot {
+  color: var(--text-faint);
+  letter-spacing: 0.16em;
+}

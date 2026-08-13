@@ -1,0 +1,143 @@
+/* ==========================================================================
+   PREVIEW STAGE
+   ========================================================================== */
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.stage__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.stage__bar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.stage__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ok);
+}
+.stage__status .badge__dot {
+  background: var(--ok);
+}
+.stage__status--busy {
+  color: var(--sun);
+}
+.stage__status--busy .badge__dot {
+  background: var(--sun);
+  animation: pulse-soft 900ms var(--ease) infinite;
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.stage__canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+
+.stage__frame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--lift-3);
+  border: 1.5px solid rgba(255, 210, 28, 0.28);
+  transition: transform 240ms var(--ease);
+  transform-style: preserve-3d;
+  background: var(--surface-sunk);
+}
+
+.stage__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.stage__canvas--grab {
+  cursor: grab;
+}
+.stage__canvas--grab:active {
+  cursor: grabbing;
+}
+
+/* One-shot "pass issued" sweep across the card. */
+.stage__sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 38%,
+    rgba(255, 231, 131, 0.32) 50%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  animation: sweep 900ms var(--ease) 1 both;
+}
+
+@keyframes sweep {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.stage__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* On phones the card must not eat the whole screen — the controls that edit
+   it have to stay within a thumb's reach. */
+@media (max-width: 720px) {
+  .stage__frame {
+    width: auto;
+    max-width: 100%;
+  }
+  .stage__canvas {
+    max-height: 46svh;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .stage__inspect-label {
+    display: none;
+  }
+  .stage__bar {
+    gap: var(--s-2);
+  }
+  .segmented__item {
+    padding-inline: 0.7em;
+    font-size: 10px;
+  }
+}

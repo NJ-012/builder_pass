@@ -1,0 +1,117 @@
+/* ==========================================================================
+   STUDIO
+   ========================================================================== */
+
+.studio {
+  padding-block: clamp(1.75rem, 3.5vw, 3rem) clamp(3rem, 6vw, 5rem);
+}
+
+.studio__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+  padding-bottom: var(--s-6);
+  margin-bottom: var(--s-7);
+  border-bottom: 1.5px solid var(--line);
+}
+
+.studio__head .eyebrow {
+  margin-bottom: var(--s-3);
+}
+
+.studio__title {
+  font-size: var(--step-3);
+}
+
+.studio__note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.55em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  max-width: 34ch;
+  line-height: 1.6;
+  padding-bottom: 2px;
+}
+
+.studio__note-icon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--sun);
+}
+
+.studio__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  align-items: start;
+}
+
+.studio__preview {
+  min-width: 0;
+}
+
+.studio__sticky {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-5));
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.studio__controls {
+  min-width: 0;
+  padding: var(--s-6);
+  border-radius: var(--r-xl);
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--lift-1);
+}
+
+.studio__mobilebar {
+  display: none;
+}
+
+/* — Tablet: stack, preview first — */
+@media (max-width: 1080px) {
+  .studio__grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-8);
+  }
+  .studio__sticky {
+    position: static;
+  }
+  .studio__preview {
+    max-width: 540px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+/* — Phone: preview + controls, actions move to a fixed bar — */
+@media (max-width: 720px) {
+  .studio {
+    padding-bottom: 6.5rem;
+  }
+  .studio__head {
+    padding-bottom: var(--s-5);
+    margin-bottom: var(--s-6);
+  }
+  .studio__note {
+    display: none;
+  }
+  .studio__controls {
+    padding: var(--s-5) var(--s-4);
+    border-radius: var(--r-lg);
+  }
+  .studio__export {
+    display: none;
+  }
+  .studio__mobilebar {
+    display: block;
+  }
+}

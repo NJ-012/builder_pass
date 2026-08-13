@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#061D15"/>
+  <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#F5DC5E" stroke-width="2.5"/>
+  <g fill="#F5DC5E" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="21" letter-spacing="-0.5">
+    <text x="32" y="30" text-anchor="middle">HH</text>
+  </g>
+  <text x="32" y="48" text-anchor="middle" fill="#F0407A" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="15">GOA</text>
+</svg>

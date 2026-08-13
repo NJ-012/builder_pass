@@ -1,0 +1,344 @@
+/* ==========================================================================
+   STUDIO CONTROL PANEL
+   ========================================================================== */
+
+.ctrl {
+  display: flex;
+  flex-direction: column;
+}
+
+.ctrl__mode {
+  padding-bottom: var(--s-5);
+}
+
+.ctrl__mode .segmented {
+  width: 100%;
+}
+.ctrl__mode .segmented__item {
+  flex: 1;
+}
+
+.ctrl__section {
+  padding-block: var(--s-6);
+  border-top: 1px solid var(--line);
+}
+.ctrl__section:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.ctrl__section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-bottom: var(--s-4);
+}
+
+.ctrl__section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  font-size: var(--step-1);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.ctrl__section-n {
+  color: var(--sun);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+}
+
+.ctrl__section-hint {
+  margin-top: var(--s-2);
+  color: var(--text-mute);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  max-width: 42ch;
+}
+
+.ctrl__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.ctrl__custom {
+  margin-top: var(--s-3);
+}
+
+/* --------------------------------------------------------------------------
+   PHOTO BLOCK
+   -------------------------------------------------------------------------- */
+
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding: var(--s-4);
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--line);
+  background: rgba(252, 246, 230, 0.035);
+}
+
+.photo-block__top {
+  display: flex;
+  gap: var(--s-4);
+  align-items: flex-start;
+}
+
+.photo-block__thumb {
+  width: 76px;
+  height: 76px;
+  flex: none;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--line-sun);
+  background: var(--surface-sunk);
+}
+
+.photo-block__meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.photo-block__name {
+  font-size: var(--step--1);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.photo-block__dims {
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.photo-block__actions {
+  display: flex;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.photo-block__swap {
+  cursor: pointer;
+}
+
+.zoom {
+  position: relative;
+}
+.zoom__reset {
+  margin-top: var(--s-1);
+  padding-inline: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SQUAD ROSTER
+   -------------------------------------------------------------------------- */
+
+.squad {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.squad__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  list-style: none;
+}
+
+.squad__row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.squad__slot {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  border: 1.5px dashed var(--line-strong);
+  background: rgba(252, 246, 230, 0.04);
+  color: var(--sun);
+  overflow: hidden;
+  transition:
+    border-color var(--t) var(--ease),
+    background-color var(--t) var(--ease);
+}
+.squad__slot:hover {
+  border-color: var(--sun);
+  background: rgba(245, 220, 94, 0.1);
+}
+.squad__slot--filled {
+  border-style: solid;
+  border-color: var(--line-sun);
+}
+.squad__slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.squad__slot-n {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.squad__name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--step-0);
+  padding-block: 0.68em;
+}
+
+.squad__remove {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text-faint);
+  transition:
+    color var(--t) var(--ease),
+    background-color var(--t) var(--ease);
+}
+.squad__remove:hover:not(:disabled) {
+  color: var(--err);
+  background: var(--err-tint);
+}
+.squad__remove:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   BUILDER CLASS OUTPUT
+   -------------------------------------------------------------------------- */
+
+.title-out {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--line-sun);
+  background: rgba(245, 220, 94, 0.07);
+}
+
+.title-out__label {
+  color: var(--text-faint);
+  letter-spacing: 0.14em;
+}
+
+.title-out__value {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--sun);
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   WORLD PICKER
+   -------------------------------------------------------------------------- */
+
+.worlds {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.world {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--line);
+  background: rgba(252, 246, 230, 0.03);
+  text-align: left;
+  transition:
+    border-color var(--t) var(--ease),
+    background-color var(--t) var(--ease),
+    transform var(--t-fast) var(--ease);
+}
+
+.world:hover {
+  border-color: var(--line-strong);
+  transform: translateX(2px);
+}
+
+.world[aria-checked='true'] {
+  border-color: var(--sun);
+  background: rgba(245, 220, 94, 0.1);
+}
+
+.world__swatch {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: var(--r-sm);
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, var(--world-a), var(--world-b));
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.14);
+}
+
+.world__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.world__name {
+  font-size: var(--step-0);
+  font-weight: 650;
+}
+
+.world__tag {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--text-mute);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world__check {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  color: transparent;
+  transition:
+    background-color var(--t) var(--ease),
+    border-color var(--t) var(--ease),
+    color var(--t) var(--ease);
+}
+.world[aria-checked='true'] .world__check {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: var(--green-950);
+}

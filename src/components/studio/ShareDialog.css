@@ -1,0 +1,65 @@
+/* ==========================================================================
+   SHARE DIALOG
+   ========================================================================== */
+
+.share {
+  max-width: 660px;
+}
+
+.share__body {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.share__preview {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1.5px solid var(--line-sun);
+  background: var(--surface-sunk);
+  box-shadow: var(--lift-2);
+}
+
+.share__preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.share__preview-skeleton {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.share__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
+}
+
+.share__caption {
+  min-height: 128px;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.55;
+}
+
+.share__foot {
+  border-top: 1.5px solid var(--line);
+  padding-top: var(--s-5);
+}
+
+@media (max-width: 620px) {
+  .share__body {
+    grid-template-columns: 1fr;
+  }
+  .share__preview {
+    max-width: 190px;
+    margin-inline: auto;
+  }
+  .share__foot .btn {
+    flex: 1 1 auto;
+  }
+}
